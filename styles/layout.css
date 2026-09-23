@@ -1,0 +1,71 @@
+/* Container and 12-track grid (VD 04; 12 tracks carry the explicit 7/5 spans of VD 05) */
+.container { width: 100%; max-width: calc(var(--container) + 2 * var(--margin)); margin-inline: auto; padding-inline: var(--margin); }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); row-gap: var(--space-4); }
+.grid > * { grid-column: 1 / -1; }
+
+@media (min-width: 768px) {
+  :root { --margin: 48px; --section-pad: 96px; }
+  .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+@media (min-width: 1280px) {
+  :root { --margin: 80px; --section-pad: 128px; }
+}
+@media (max-width: 767px) {
+  :root { --section-pad: 48px; }
+  h1 { font-size: var(--step-5); }
+  h2 { font-size: var(--step-4); }
+}
+
+.section { padding-block: var(--section-pad); }
+.section-head { display: grid; gap: var(--space-3); }
+/* VD 07 graphic device: a single hairline rule under section titles */
+.section-head h2::after { content: ""; display: block; width: 48px; height: 1px; background: var(--c-primary); margin-top: var(--space-3); }
+
+/* Surfaces (VD 03) */
+[data-theme="neutral"] { background: var(--surface-page); }
+[data-theme="raised"] { background: var(--surface-raised); }
+[data-theme="inverted"] { background: var(--surface-inverted); color: var(--text-on-inverted); }
+[data-theme="primary"] { background: var(--surface-primary); color: var(--text); }
+
+/* Header (VD 05 system default) */
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--surface-page); transition: background 200ms; }
+.site-header.is-scrolled { background: var(--surface-raised); box-shadow: 0 1px 0 var(--border); }
+.header-inner { display: flex; align-items: center; gap: var(--space-3); min-height: 64px; flex-wrap: wrap; }
+.wordmark { font-family: var(--font-display); font-size: 28px; line-height: 1; color: var(--c-primary); text-decoration: none; letter-spacing: -0.01em; margin-right: auto; }
+.menu { display: flex; align-items: center; gap: var(--space-4); }
+.nav { display: flex; gap: var(--space-3); align-items: center; }
+.nav a { text-decoration: none; font-size: var(--step-1); padding-block: 12px; }
+.nav a:hover { text-decoration: underline; }
+.lang { display: flex; gap: var(--space-2); font-size: var(--step-1); }
+.lang a { text-decoration: none; padding: 12px 2px; }
+.lang a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; }
+.header-cta { min-height: 44px; padding: 10px 16px; font-size: var(--step-1); }
+.menu-toggle { display: none; }
+
+@media (min-width: 768px) { .header-inner { min-height: 80px; } }
+@media (max-width: 1023px) {
+  .js .menu { display: none; }
+  .js .menu-toggle { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; background: transparent; border: 1px solid var(--c-primary); font: inherit; font-size: var(--step-1); padding: 10px 14px; cursor: pointer; color: var(--text); }
+  .js .menu.is-open { display: flex; position: fixed; inset: 64px 0 0 0; flex-direction: column; align-items: flex-start; gap: var(--space-5); padding: var(--space-5) var(--margin); background: var(--surface-page); z-index: 60; overflow-y: auto; }
+  .js .menu.is-open .nav { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+  .js .menu.is-open .nav a { font-size: var(--step-4); font-family: var(--font-display); }
+  html:not(.js) .menu { order: 5; width: 100%; flex-wrap: wrap; gap: var(--space-2) var(--space-4); padding-bottom: 8px; }
+  html:not(.js) .nav { flex-wrap: wrap; }
+}
+@media (min-width: 768px) and (max-width: 1023px) { .js .menu.is-open { inset: 80px 0 0 0; } }
+@media (max-width: 479px) {
+  .header-cta { display: none; }
+}
+
+/* Footer */
+.site-footer { padding-block: var(--space-5); border-top: 1px solid var(--border); font-size: var(--step-1); }
+.footer-inner { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); align-items: baseline; }
+.footer-inner .wordmark { font-size: 22px; margin-right: 0; }
+
+/* Review-only grid overlay: ?grid=1 */
+.grid-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 999; }
+.grid-overlay .grid { height: 100%; }
+.grid-overlay .grid > span { grid-column: auto; background: rgba(181, 121, 138, 0.12); height: 100%; }

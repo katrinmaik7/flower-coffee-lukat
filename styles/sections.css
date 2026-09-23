@@ -1,0 +1,54 @@
+/* Section-specific exceptions */
+
+/* S03 — items, steps, price */
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.items li { display: grid; gap: 4px; padding-left: var(--space-3); border-left: 1px solid var(--c-primary); }
+.items .item-name { font-family: var(--font-display); font-size: var(--step-3); line-height: var(--lh-h3); }
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: var(--space-2); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2.25rem 1fr; align-items: baseline; }
+.steps li::before { content: counter(step); font-family: var(--font-display); font-size: var(--step-3); color: var(--text-muted); }
+.price-line { font-family: var(--font-display); font-size: var(--step-4); line-height: var(--lh-h3); padding-top: var(--space-3); border-top: 1px solid var(--border); }
+#S03-inside .split-main { display: grid; gap: var(--space-4); align-content: start; }
+#S03-inside .split-main h3 { margin-top: var(--space-2); }
+
+/* S04 — comparison pair */
+#S04-compare .split-aside { display: grid; gap: var(--space-3); align-content: start; }
+.compare { display: grid; gap: var(--space-4); }
+.compare-item { padding: var(--space-4); background: var(--surface-page); border-left: 2px solid var(--border); display: grid; gap: var(--space-2); }
+.compare-item.is-lukat { border-left-color: var(--c-primary); }
+.compare-item h3 { font-size: var(--step-4); }
+.compare-item p { font-size: var(--step-3); line-height: var(--lh-lead); }
+.compare-note { font-size: var(--step-3); line-height: var(--lh-lead); }
+
+/* S07 — form on the rose surface */
+.signup { display: grid; gap: var(--space-4); text-align: left; }
+.field { display: grid; gap: var(--space-1); }
+.field label, .field legend { font-size: var(--step-2); }
+.field .hint { font-size: var(--step-1); }
+.field input[type="email"], .field input[type="text"] {
+  width: 100%; min-height: 48px; padding: 12px 14px;
+  font: inherit; font-size: max(16px, var(--step-2)); color: var(--text);
+  background: var(--surface-page); border: 1px solid var(--text); border-radius: var(--radius);
+}
+.field input:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.field[data-invalid="true"] input { border-width: 2px; }
+.field-error { font-size: var(--step-1); display: none; }
+.field[data-invalid="true"] .field-error { display: block; }
+.field-error::before { content: "! "; }
+fieldset.field { border: 0; margin: 0; padding: 0; }
+.choices { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); margin-top: var(--space-1); }
+.choice { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; background: var(--surface-page); border: 1px solid var(--text); cursor: pointer; font-size: var(--step-1); }
+.choice input { accent-color: var(--text); width: 18px; height: 18px; margin: 0; }
+.consent { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; font-size: var(--step-1); line-height: 1.5; }
+.consent input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--text); }
+.signup .btn { width: 100%; background: var(--btn-on-primary-bg); color: var(--btn-on-primary-label); }
+.signup .btn:hover { background: var(--btn-on-primary-hover); }
+.signup .btn:focus-visible { outline-color: var(--surface-page); outline-offset: 3px; box-shadow: 0 0 0 5px var(--text); }
+.form-helper { font-size: var(--step-1); text-align: center; }
+.form-status { margin-top: var(--space-4); padding: var(--space-3); background: var(--surface-page); border-left: 2px solid var(--text); }
+.form-status[hidden] { display: none; }
+
+/* Privacy stub */
+.placeholder-box { border: 1px dashed var(--text); padding: var(--space-3); background: var(--surface-raised); }
+.legal { display: grid; gap: var(--space-3); max-width: var(--measure); }
+.legal h2 { font-size: var(--step-4); }

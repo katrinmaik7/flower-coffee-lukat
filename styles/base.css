@@ -1,0 +1,48 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 88px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: var(--weight);
+  font-size: var(--step-2);
+  line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight); margin: 0; text-wrap: balance; }
+h1 { font-size: var(--step-6); line-height: var(--lh-h1); letter-spacing: var(--track-display); }
+h2 { font-size: var(--step-5); line-height: var(--lh-h2); letter-spacing: var(--track-h2); }
+h3 { font-size: var(--step-4); line-height: var(--lh-h3); }
+p { margin: 0; }
+strong, b { font-weight: var(--weight); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+.skip-link { position: absolute; left: 16px; top: -100px; background: var(--surface-page); padding: 12px 16px; z-index: 100; }
+.skip-link:focus { top: 16px; }
+
+.eyebrow { font-size: var(--step-1); line-height: 1.4; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+.lead { font-size: var(--step-3); line-height: var(--lh-lead); color: var(--text-muted); }
+.caption { font-size: var(--step-1); line-height: 1.4; font-style: italic; color: var(--text-muted); }
+
+/* Buttons — VD 03 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--btn-height); padding: 16px 24px;
+  font: inherit; font-size: var(--step-2); line-height: 1;
+  border: 1px solid transparent; border-radius: var(--radius);
+  text-decoration: none; cursor: pointer;
+}
+.btn-primary { background: var(--btn-bg); color: var(--btn-label); }
+.btn-primary:hover { background: var(--btn-hover); }
+.btn-primary:active { background: var(--btn-active); }
+.btn-secondary { background: transparent; color: var(--link); border-color: var(--c-primary); }
+.btn-secondary:hover { background: var(--btn-secondary-hover); }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: 0.4; cursor: not-allowed; }
+.btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

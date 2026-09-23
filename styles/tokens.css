@@ -1,0 +1,87 @@
+/* LuKat design tokens — source: assets/brand/visual-direction.md */
+
+/* VD 02 Name & Typography — explicit answer: Libre Caslon Text, stack as exported.
+   No font file supplied and no font CDN allowed: local() is tried, then Georgia. */
+@font-face {
+  font-family: "Libre Caslon Text";
+  src: local("Libre Caslon Text"), local("LibreCaslonText-Regular");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Libre Caslon Text";
+  src: local("Libre Caslon Text Italic"), local("LibreCaslonText-Italic");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* VD 03 Color System — explicit source colours */
+  --c-primary: #B5798A;
+  --c-neutral: #F7F0EF;
+  --c-accent-01: #33272A;
+  --c-accent-02: #D9B8A8; /* packaging/seasonal only — unused on the site */
+  --c-accent-03: #7E8F87; /* data/states only — unused on the site */
+
+  /* VD 03 computed interface surfaces — explicit */
+  --surface-page: #F7F0EF;
+  --surface-raised: #FAF5F5;
+  --surface-inverted: #33272A;
+  --surface-primary: var(--c-primary);
+  --border: #D9D3D2;
+
+  /* Semantic text roles — #111/#FFF explicit; muted is derived (7.39:1 on page) */
+  --text: #111111;
+  --text-muted: #5A4A4E;
+  --text-on-inverted: #FFFFFF;
+  --link: #33272A;
+
+  /* VD 03 buttons — explicit, except hover (derived: #9F6A79 gave 4.33:1 with #111) */
+  --btn-bg: #B5798A;
+  --btn-label: #111111;
+  --btn-hover: #C28C9B;
+  --btn-active: #D09CAA;
+  --focus-ring: #33272A;
+  --btn-secondary-hover: #F6EFF1;
+  /* On the rose closing surface the button inverts to stay distinct (derived) */
+  --btn-on-primary-bg: #111111;
+  --btn-on-primary-label: #FFFFFF;
+  --btn-on-primary-hover: #2E2E2E;
+
+  /* VD 02 font stacks and weight (no bold) */
+  --font-display: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-body: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --weight: 400;
+
+  /* VD 02 type scale — system default */
+  --step-1: clamp(13px, 0.8rem + 0.1vw, 14px);
+  --step-2: clamp(17px, 1rem + 0.1vw, 18px);
+  --step-3: clamp(20px, 1.1rem + 0.4vw, 24px);
+  --step-4: clamp(22px, 1.2rem + 0.6vw, 30px);
+  --step-5: clamp(30px, 1.4rem + 1.6vw, 44px);
+  --step-6: clamp(44px, 6vw, 72px);
+  --lh-h1: 1.05; --lh-h2: 1.15; --lh-h3: 1.25; --lh-body: 1.55; --lh-lead: 1.45;
+  --track-display: -0.02em; --track-h2: -0.01em;
+
+  /* VD 04 Composition — system defaults */
+  --container: 1280px;
+  --margin: 24px;            /* 48px tablet, 80px desktop via media queries */
+  --gap: 24px;
+  --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px;
+  --space-5: 48px; --space-6: 64px; --space-7: 96px; --space-8: 128px;
+  --section-pad: 64px;       /* halves on mobile per VD 04 */
+  --measure: 68ch;
+
+  /* VD 03 button size — explicit */
+  --btn-height: 48px;
+  --radius: 0;               /* VD 07 frames: none — derived: square controls */
+
+  /* VD 05 accordion motion — explicit */
+  --acc-expand: 250ms; --acc-collapse: 250ms;
+  --acc-chevron: 250ms; --acc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Breakpoints (VD 04): 390 mobile · 768 tablet · 1280 desktop · 1600 wide.
+     Media queries use these literal values. */
+}
